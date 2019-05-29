@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Journalito{% if title %} - {{ title }}{% endif %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
+
+  <body>
+    <main class="main-container">
+      <div class="logo-container">
+        <div class="container">
+          <span class="logo">journalito</span>
+          <span class="logo-subtitle">&gt; <span class="cursor">|</span></span>
+        </div>
+      </div>
+
+      {% block nav %}
+        {% include('includes/nav.html') %}
+      {% endblock %}
+
+      <div class="container">
+        {% block flash %}
+          {% include('includes/flash.html') %}
+        {% endblock %}
+
+        {% block content %}{% endblock %}
+      </div>{#--/.container--#}
+    </main>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Books</h1>
+
+  <ul>
+  {% for book in books %}
+    <li>
+      <a href="{{ url_for('main.book_detail', slug=book.slug) }}">{{ book }}</a>
+    {% if book.is_primary %}
+      🌟
+    {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+
+  <p>
+    <a href="{{ url_for('main.book_new') }}">New book</a>
+  </p>
+{% endblock %}

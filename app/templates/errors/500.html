@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Server Error</h1>
+
+  <p>
+    An adult* has been notified.
+  </p>
+
+  <p>
+    <a href="{{ url_for('main.index') }}">Home</a>
+  </p>
+
+  <p>
+    <small>* By adult I mean someone who's been crushed by the world enough to give up on their hopes and dreams.</small>
+  </p>
+{% endblock %}

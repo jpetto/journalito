@@ -1,0 +1,18 @@
+<article class="post">
+{% if post.title %}
+  <h3 class="post-title">{{ post.title }}</h3>
+{% endif %}
+
+  <p class="post-content">
+    {{ post.content }}
+  </p>
+
+  <div class="post-time-actions-wrapper">
+    <small class="post-time">{{ post.formatted_time }}</small>
+
+    <ul class="post-actions">
+      <li class="post-action"><a href="{{ url_for('main.edit_post', post_id=post.id) }}">Edit</a></li>
+      <li class="post-action"><a href="{{ url_for('main.delete_post', post_id=post.id) }}">Delete</a></li>
+    </ul>
+  </div>
+</article>

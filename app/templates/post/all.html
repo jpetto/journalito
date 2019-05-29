@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Posts</h1>
+
+  {# TODO: paginate this shit #}
+  {% for post in posts %}
+    {% with post=post %}
+      {% include 'post/includes/_post.html' %}
+    {% endwith %}
+  {% endfor %}
+{% endblock %}

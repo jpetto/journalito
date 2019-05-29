@@ -1,0 +1,31 @@
+<form action="" method="post">
+  {{ form.hidden_tag() }}
+
+  <p>
+    {{ form.name.label }}
+    {{ form.name(size=32) }}
+  {% for error in form.name.errors %}
+    <span style="color: red;">{{ error }}</span>
+  {% endfor %}
+  </p>
+
+  <p>
+    {{ form.description.label }}
+    {{ form.description() }}
+  </p>
+
+  {% if not form.is_primary.data %}
+  <p>
+    {{ form.is_primary.label }}
+    {{ form.is_primary() }}
+  </p>
+  {% else %}
+  <p>
+    This is your primary book!
+  </p>
+  {% endif %}
+
+  <p>
+    {{ form.submit() }}
+  </p>
+</form>

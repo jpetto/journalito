@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Write</h1>
+
+  {% include 'post/includes/_form.html' %}
+
+  {% set posts = current_user.previous_years_posts() %}
+  {% if posts %}
+    {# need to use namespaces to access variables inside loop scope #}
+    {% set ns = namespace(year=0) %}
+    <h2>Previously</h2>
+
+    {% for post in posts %}
+      {% if post.timestamp.year != ns.year %}
+        <strong>{{ post.timestamp.year }}</strong>
+
+        {% set ns.year = post.timestamp.year %}
+      {% endif %}
+      {% with post=post %}
+        {% include 'post/includes/_post.html' %}
+      {% endwith %}
+    {% endfor %}
+  {% endif %}
+{% endblock %}

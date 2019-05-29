@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Hi</h1>
+
+  <p>
+    This is a simple little journal app. I've been using
+    <a href="https://www.amazon.com/Happiness-Project-One-Sentence-Journal-Five-Year/dp/0307888576?SubscriptionId=AKIAILSHYYTFIVPWUY6Q&tag=duckduckgo-ffab-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=0307888576" rel="external, noopener">Gretchen Rubin's One-Sentence Journal</a>
+    and wanted an online version of that.
+  </p>
+
+  <p>
+    Everything is private, unless you specifically mark a post as public.
+  </p>
+
+  <p>
+    You can write in markdown or just plain text. Have fun.
+  </p>
+
+  <p>
+    <a href="{{ url_for('auth.login') }}">Sign in</a> if you already have an account, or
+    <a href="{{ url_for('auth.register') }}">register</a> if you're new.
+  </p>
+{% endblock %}

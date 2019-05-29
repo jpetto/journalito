@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ book.name }}</h1>
+
+  <p>
+    <a href="{{ url_for('main.book_edit', slug=book.slug) }}">edit</a>
+    <a href="{{ url_for('main.book_delete', slug=book.slug) }}">delete</a>
+  </p>
+
+  {% include 'post/includes/_form.html' %}
+
+  {% set posts = book.previous_years_posts() %}
+  {% if posts %}
+    {# need to use namespaces to access variables inside loop scope #}
+    {% set ns = namespace(year=0) %}
+    <h2>Previously</h2>
+
+    {% for post in posts %}
+      {% if post.timestamp.year != ns.year %}
+        <strong>{{ post.timestamp.year }}</strong>
+
+        {% set ns.year = post.timestamp.year %}
+      {% endif %}
+      {% with post=post %}
+        {% include 'post/includes/_post.html' %}
+      {% endwith %}
+    {% endfor %}
+  {% endif %}
+
+  <a href="{{ url_for('main.book_all_posts', slug=book.slug) }}">See all posts for this book</a>
+{% endblock %}

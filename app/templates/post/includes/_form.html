@@ -1,0 +1,42 @@
+<section class="post-form">
+  <form action="{{ form.post_url }}" method="post">
+    {{ form.hidden_tag() }}
+
+    <p>
+      {{ form.title.label }}
+    {% for error in form.title.errors %}
+      <span style="color:red;">{{ error }}</span>
+    {% endfor %}
+      {{ form.title(size=40, class='post-title') }}
+    </p>
+
+    <p>
+    {% for error in form.content.errors %}
+      <span style="color:red;">{{ error }}</span>
+    {% endfor %}
+      {{ form.content(rows=7, cols=40, class='post-content') }}
+    </p>
+
+    <div class="date-time-wrapper columns-2">
+      <div class="column">
+        {{ form.date.label }}
+      {% for error in form.date.errors %}
+        <span style="color: red;">{{ error }}</span>
+      {% endfor %}
+        {{ form.date(class='post-date') }}
+      </div>
+
+      <div class="column">
+        {{ form.time.label }}
+      {% for error in form.time.errors %}
+        <span style="color: red;">{{ error }}</span>
+      {% endfor %}
+        {{ form.time(class='post-time') }}
+      </div>
+    </div>
+
+    <p>
+      {{ form.submit() }}
+    </p>
+  </form>
+</section>

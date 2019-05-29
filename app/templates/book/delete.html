@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Delete {{ book.name }}?</h1>
+
+  <form action="" method="post">
+    {{ form.hidden_tag() }}
+
+    <p>
+      Deleting this book will also delete its {{ book.posts.count() }} posts. Be sure!
+    </p>
+
+    <p>
+      {{ form.confirm.label }}
+      {{ form.confirm() }}
+    </p>
+
+    <p>
+      {{ form.submit() }}
+    </p>
+  </form>
+{% endblock %}
