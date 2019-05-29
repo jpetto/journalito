@@ -1,3 +1,5 @@
+Basically a customized version of [Miguel Grinberg's excellent Flask tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). A web version (yucK!) of [Gretchen Rubin's One-Sentence Journal](https://www.goodreads.com/book/show/38621692-the-happiness-project-one-sentence-journal).
+
 # Setup
 
 1. Create a virtual environment: `python3 -m venv venv`
