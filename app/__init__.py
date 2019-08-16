@@ -63,7 +63,7 @@ def create_app(config_class=Config):
                     flapp.config['MAIL_PORT']),
                 fromaddr='no-reply@' + flapp.config['MAIL_SERVER'],
                 toaddrs=flapp.config['ADMINS'],
-                subject='ItMe error!',
+                subject='journalito error!',
                 credentials=auth,
                 secure=secure
             )
@@ -85,7 +85,7 @@ def create_app(config_class=Config):
 
         flapp.logger.addHandler(file_handler)
         flapp.logger.setLevel(logging.INFO)
-        flapp.logger.info('ItMe startup')
+        flapp.logger.info('journalito: starting up!')
 
     return flapp
 
