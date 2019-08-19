@@ -1,4 +1,5 @@
 from app.models import User
+from flask import current_app
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
@@ -17,6 +18,7 @@ class RegistrationForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     password_confirm = PasswordField('Confirm password', validators=[
                                      DataRequired(), EqualTo('password')])
+    invite_code = StringField('Invite code', validators=[DataRequired()])
     submit = SubmitField('Register')
 
     # custom validator takes the form of validate_<fieldname>
@@ -33,6 +35,11 @@ class RegistrationForm(FlaskForm):
         if user is not None:
             raise ValidationError(
                 'Someone already registered that email address.')
+
+    def validate_invite_code(self, invite_code):
+        if invite_code.data not in current_app.config['INVITE_CODES']:
+            raise ValidationError(
+                'Sorry, I don\'t recoginize that invite code.')
 
 
 class ResetPasswordRequestForm(FlaskForm):

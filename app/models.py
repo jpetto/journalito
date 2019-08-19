@@ -27,6 +27,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(128), index=True, unique=True)
     password_hash = db.Column(db.String(128))
+    invite_code = db.Column(db.String(128))
     # first argument below references class name 'Post', not the table name
     # 'post'. sigh.
     posts = db.relationship('Post', backref='user', lazy='dynamic',

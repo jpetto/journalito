@@ -20,3 +20,4 @@ class Config(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['jon@equalparts.io']
+    INVITE_CODES = os.environ.get('INVITE_CODES').split(',') if os.environ.get('INVITE_CODES') else []

@@ -13,6 +13,11 @@ Basically a customized version of [Miguel Grinberg's excellent Flask tutorial](h
 2. Create migrations: `flask db migrate`
 3. Run the migrations: `flask db upgrade`
 
+## Run it
+
+1. Create an `.env` file and add the line `FLASK_ENV=development`
+2. Run the server: `flask run`
+
 ## Testing email error handling
 
 1. Start a fake SMTP server: `python -m smtpd -n -c DebuggingServer localhost:8025`

@@ -39,6 +39,14 @@
     </p>
 
     <p>
+      {{ form.invite_code.label }}
+      {{ form.invite_code(size=32) }}
+    {% for error in form.invite_code.errors %}
+      <span style="color: red;">{{ error }}</span>
+    {% endfor %}
+    </p>
+
+    <p>
       {{ form.submit() }}
     </p>
   </form>
